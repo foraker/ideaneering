@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ideaneering',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://ideaneering.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
