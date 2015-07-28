@@ -1,0 +1,19 @@
+<section class="ideas">
+  <div class="wrapper">
+    <h1>
+      Ideas
+
+      {{link-to 'new' 'ideas.new' class='button'}}
+    </h1>
+
+    {{#each controller as |idea|}}
+      <div class="idea">
+        <h2>{{idea.title}}</h2>
+
+        <p>{{idea.description}}</p>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+{{outlet}}
