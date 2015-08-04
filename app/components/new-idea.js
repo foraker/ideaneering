@@ -11,6 +11,6 @@ export default Ember.Component.extend({
   },
 
   didInsertElement: function() {
-    Ember.$('input').focus();
+    Ember.$('input').first().focus();
   }
 });
