@@ -1,8 +1,37 @@
-{{#if session.isAuthenticated}}
-  Logged in as {{session.currentUser.displayName}}
-  <button {{action "signOut"}}>Sign out</button>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/ideas">Ideanearing</a>
+    </div>
 
-  {{outlet}}
-{{else}}
-  <button {{action "signIn" "google"}}>Sign in</button>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        {{#if session.isAuthenticated}}
+          {{#bs-dropdown tagName="li"}}
+            {{#bs-dropdown-toggle}}{{session.currentUser.displayName}} <span class="caret"></span>{{/bs-dropdown-toggle}}
+            {{#bs-dropdown-menu}}
+              <li><a href="#" {{action "signOut"}}>Sign out</a></li>
+            {{/bs-dropdown-menu}}
+          {{/bs-dropdown}}
+        {{else}}
+          <li><a href="#" {{action "signIn" "google"}}>Sign in</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+{{#if session.isAuthenticated}}
+  <div class="container">
+    {{outlet}}
+  </div>
 {{/if}}
