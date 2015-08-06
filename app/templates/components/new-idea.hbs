@@ -1,15 +1,11 @@
 {{yield}}
 
-<h3>new idea component!</h3>
-
 <div class="wrapper">
   <form {{action 'save' on='submit'}}>
-    <div class="actions">
-      <a href="#" {{action 'save'}}>Save!</a>
-    </div>
-
     {{input value=idea.title placeholder='Title'}}
 
     {{input value=idea.description placeholder='Description'}}
+
+    {{input type='submit' value='Save' class='btn btn-primary'}}
   </form>
 </div>
