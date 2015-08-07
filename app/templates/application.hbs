@@ -16,7 +16,10 @@
       <ul class="nav navbar-nav">
         {{#if session.isAuthenticated}}
           {{#bs-dropdown tagName="li"}}
-            {{#bs-dropdown-toggle}}{{session.currentUser.displayName}} <span class="caret"></span>{{/bs-dropdown-toggle}}
+            {{#bs-dropdown-toggle}}
+              <img src="{{session.currentUser.image}}" class="profile-thumb">
+              {{session.currentUser.name}} <span class="caret"></span>
+            {{/bs-dropdown-toggle}}
             {{#bs-dropdown-menu}}
               <li><a href="#" {{action "signOut"}}>Sign out</a></li>
             {{/bs-dropdown-menu}}
