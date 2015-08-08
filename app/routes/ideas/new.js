@@ -10,7 +10,9 @@ export default Ember.Route.extend({
       this.store.findRecord('user', user.id).then(function(user) {
         model.set('user', user);
         model.save().then(function() {
-          _this.transitionTo('ideas');
+          user.save().then(function() {
+            _this.transitionTo('ideas');
+          });
         });
       });
 
