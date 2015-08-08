@@ -2,3 +2,26 @@ nav li a img.profile-thumb {
   max-width: 25px;
   max-height: 25px;
 }
+
+.ideas .idea .author {
+  float: right;
+}
+
+.ideas .idea .author img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.ideas .idea .idea-contents {
+  float: left;
+}
+
+.ideas .idea .idea-contents h2 {
+  margin-top: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

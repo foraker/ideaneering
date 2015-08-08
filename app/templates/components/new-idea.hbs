@@ -1,10 +1,16 @@
 {{yield}}
 
 <div class="wrapper">
-  <form {{action 'save' on='submit'}}>
-    {{input value=idea.title placeholder='Title'}}
+  <form {{action 'save' on='submit'}} class="form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      {{input value=idea.title placeholder='Title' id='title' class='form-control'}}
+    </div>
 
-    {{input value=idea.description placeholder='Description'}}
+    <div class="form-group">
+      <label for="description">Description</label>
+      {{textarea value=idea.description placeholder='Description' id='description' class='form-control'}}
+    </div>
 
     {{input type='submit' value='Save' class='btn btn-primary'}}
   </form>
