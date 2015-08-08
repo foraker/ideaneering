@@ -17,7 +17,7 @@ export default Ember.Route.extend({
       return false;
     }
   },
-  model: function() {
+  model() {
     return this.store.createRecord('idea');
   }
 });
