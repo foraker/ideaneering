@@ -3,5 +3,10 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   title: DS.attr('string'),
   description: DS.attr('string'),
-  user: DS.belongsTo('user', { async: true })
+  user: DS.belongsTo('user', { async: true }),
+  votes: DS.hasMany('vote', { async: true }),
+
+  score: function() {
+    return this.get('votes').get('length');
+  }.property('votes.@each')
 });

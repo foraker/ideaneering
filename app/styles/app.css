@@ -3,8 +3,15 @@ nav li a img.profile-thumb {
   max-height: 25px;
 }
 
+.ideas .idea .score {
+  /*display: inline-block;*/
+  /*float: left;*/
+  /*width: 10%;*/
+  font-size: 3em;
+}
+
 .ideas .idea .author {
-  float: right;
+  /*float: right;*/
 }
 
 .ideas .idea .author img {
@@ -13,7 +20,7 @@ nav li a img.profile-thumb {
 }
 
 .ideas .idea .idea-contents {
-  float: left;
+  /*float: left;*/
 }
 
 .ideas .idea .idea-contents h2 {

@@ -9,7 +9,7 @@ export default Ember.Route.extend({
       var _this = this;
 
       this.get("session").open("firebase", { provider: provider }).then(
-        function(data) {
+        function() {
           _this.transitionTo('ideas');
         }
       );
