@@ -6,7 +6,7 @@
       {{link-to 'new' 'ideas.new' class='btn btn-primary pull-right'}}
     </h1>
 
-    {{#each controller as |idea|}}
+    {{#each model.sortedIdeas as |idea|}}
       {{idea-row idea=idea voteUp='voteUp'}}
     {{/each}}
   </div>

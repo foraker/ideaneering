@@ -19,6 +19,11 @@ export default Ember.Route.extend({
   },
 
   model() {
-    return this.store.findAll('idea');
+    return this.store.findAll('idea').then(function(ideas) {
+      return Ember.Object.extend({
+        sortedIdeas: Ember.computed.sort('model', 'props'),
+        props: ['createdAt:desc']
+      }).create({ model: ideas });
+    });
   }
 });
