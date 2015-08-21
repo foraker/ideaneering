@@ -15,6 +15,16 @@ export default Ember.Route.extend({
       });
 
       return false;
+    },
+
+    removeVote: function(idea) {
+      var user = this.get('session').get('currentUser');
+
+      user.get('votes').filter(function(vote) {
+        return vote.get('idea') == idea;
+      })[0].destroyRecord();
+
+      return false;
     }
   },
 
