@@ -12,6 +12,7 @@
   <img src="{{idea.user.image}}"> {{idea.user.name}}
 
   <div class="actions">
+    {{#link-to 'idea.edit' idea class="edit-link"}}{{fa-icon 'pencil'}}{{/link-to}}
     <a href="#" {{action "deleteIdea"}} class="delete-link">{{fa-icon 'trash'}}</a>
   </div>
 </div>

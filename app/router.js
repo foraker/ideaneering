@@ -9,6 +9,10 @@ Router.map(function() {
   this.route('ideas', function() {
     this.route('new');
   });
+
+  this.resource('idea', { path: '/idea/:idea_id' }, function() {
+    this.route('edit');
+  })
 });
 
 export default Router;

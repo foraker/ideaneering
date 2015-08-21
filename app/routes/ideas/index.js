@@ -31,6 +31,12 @@ export default Ember.Route.extend({
       idea.destroyRecord();
 
       return false;
+    },
+
+    editIdea: function(idea) {
+      this.transitionTo('ideas/edit', idea);
+
+      return false;
     }
   },
 
