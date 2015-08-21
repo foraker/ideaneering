@@ -16,13 +16,24 @@ nav li a img.profile-thumb {
       line-height: 40px;
     }
 
-    .author img {
-      max-width: 50px;
-      max-height: 50px;
-    }
-
     .idea-contents h2 {
       margin-top: 0;
+    }
+
+    .author {
+      img {
+        max-width: 50px;
+        max-height: 50px;
+      }
+    }
+
+    .actions {
+      padding-top: 10px;
+
+      .delete-link {
+        color: red;
+        font-size: 1.2em;
+      }
     }
   }
 }

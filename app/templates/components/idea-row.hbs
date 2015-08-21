@@ -8,6 +8,10 @@
   <p>{{idea.description}}</p>
 </div>
 
-<div class="author col-md-2">
+<div class="author col-md-3">
   <img src="{{idea.user.image}}"> {{idea.user.name}}
+
+  <div class="actions">
+    <a href="#" {{action "deleteIdea"}} class="delete-link">{{fa-icon 'trash'}}</a>
+  </div>
 </div>

@@ -7,7 +7,11 @@
     </h1>
 
     {{#each model.sortedIdeas as |idea|}}
-      {{idea-row idea=idea removeVote='removeVote' voteUp='voteUp' currentUser=currentUser}}
+      {{idea-row idea=idea
+          removeVote='removeVote'
+          voteUp='voteUp'
+          deleteIdea='deleteIdea'
+          currentUser=currentUser}}
     {{/each}}
   </div>
 </section>

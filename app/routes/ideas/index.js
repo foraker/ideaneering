@@ -25,6 +25,12 @@ export default Ember.Route.extend({
       })[0].destroyRecord();
 
       return false;
+    },
+
+    deleteIdea: function(idea) {
+      idea.destroyRecord();
+
+      return false;
     }
   },
 

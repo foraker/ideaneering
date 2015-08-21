@@ -13,6 +13,11 @@ export default Ember.Component.extend({
       } else {
         this.sendAction('voteUp', this.get('idea'));
       }
+    },
+    deleteIdea: function() {
+      if (confirm("Are you sure you want to delete this idea?")) {
+        this.sendAction('deleteIdea', this.get('idea'));
+      }
     }
   },
 
