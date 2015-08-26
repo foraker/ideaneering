@@ -10,8 +10,13 @@ export default DS.Model.extend({
   }),
   user: DS.belongsTo('user', { async: true }),
   votes: DS.hasMany('vote', { async: true }),
+  comments: DS.hasMany('comment', { async: true }),
 
   score: function() {
     return this.get('votes').get('length');
-  }.property('votes.@each')
+  }.property('votes.@each'),
+
+  commentCount: function() {
+    return this.get('comments').get('length');
+  }.property('comments.@each')
 });
