@@ -17,6 +17,10 @@ Router.map(function() {
       this.route('new');
     });
   });
+
+  this.resource('comment', { path: '/comment/:comment_id' }, function() {
+    this.route('edit');
+  });
 });
 
 export default Router;

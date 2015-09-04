@@ -1,4 +1,7 @@
 <li class="list-group-item">
   {{comment.body}} - {{comment.userName}}
-  <a href="#" {{action "deleteComment"}} class="delete-link">{{fa-icon 'trash'}}</a>
+  <div class="actions">
+    {{#link-to 'comment.edit' comment class="edit-link"}}{{fa-icon 'pencil'}}{{/link-to}}
+    <a href="#" {{action "deleteComment"}} class="delete-link">{{fa-icon 'trash'}}</a>
+  </div>
 </li>

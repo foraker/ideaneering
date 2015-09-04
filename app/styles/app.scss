@@ -39,22 +39,24 @@ nav li a img.profile-thumb {
         padding-left: 10px;
       }
     }
+
+    .comments {
+      .title {
+        line-height: 2em;
+      }
+
+      .new-button {
+        color: white;
+      }
+
+      .actions {
+        float: right;
+        padding-top: 0;
+      }
+    }
   }
 }
 
-.comments {
-  .title {
-    line-height: 2em;
-  }
-
-  .new-button {
-    color: white;
-  }
-
-  .delete-link {
-    float: right;
-  }
-}
 
 .clearfix:after {
   content: "";
