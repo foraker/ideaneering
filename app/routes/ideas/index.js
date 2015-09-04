@@ -20,8 +20,8 @@ export default Ember.Route.extend({
     removeVote: function(idea) {
       var user = this.get('session').get('currentUser');
 
-      user.get('votes').filter(function(vote) {
-        return vote.get('idea') == idea;
+      idea.get('votes').filter(function(vote) {
+        return vote.get('user') == user;
       })[0].destroyRecord();
 
       return false;
