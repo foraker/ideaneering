@@ -5,7 +5,7 @@
 
 <div class="idea-contents col-md-8">
   <h2>{{idea.title}}</h2>
-  <p>{{idea.description}}</p>
+  <p>{{markdown-to-html markdown=idea.description}}</p>
 
   {{comments-list comments=idea.comments idea=idea deleteComment='deleteComment'}}
 </div>
