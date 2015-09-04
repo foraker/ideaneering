@@ -3,6 +3,10 @@ nav li a img.profile-thumb {
   max-height: 25px;
 }
 
+.delete-link {
+  color: red;
+}
+
 .ideas {
   .idea {
     &.has-voted .score a {
@@ -32,10 +36,23 @@ nav li a img.profile-thumb {
       font-size: 1.2em;
 
       .delete-link {
-        color: red;
         padding-left: 10px;
       }
     }
+  }
+}
+
+.comments {
+  .title {
+    line-height: 2em;
+  }
+
+  .new-button {
+    color: white;
+  }
+
+  .delete-link {
+    float: right;
   }
 }
 

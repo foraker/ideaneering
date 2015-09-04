@@ -1,10 +1,12 @@
-<div>
-  {{comments.length}} comments
-  ({{#link-to 'comments.new' idea}}new{{/link-to}})
+<div class="panel-heading">
+  <div class="panel-title clearfix">
+    <span class="title">{{comments.length}} comments</span>
+    {{#link-to 'comments.new' idea class='new-button btn btn-primary clearfix pull-right'}}new{{/link-to}}
+  </div>
 </div>
 
-<ul>
+<ul class="list-group">
   {{#each comments as |comment|}}
-    <li>{{comment.body}} - {{comment.userName}}</li>
+    {{comment-row comment=comment deleteComment='deleteComment'}}
   {{/each}}
 </ul>

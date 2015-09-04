@@ -33,6 +33,13 @@ export default Ember.Route.extend({
       return false;
     },
 
+    deleteComment: function(comment) {
+      console.log("deleteComment: ", comment);
+      comment.destroyRecord();
+
+      return false;
+    },
+
     editIdea: function(idea) {
       this.transitionTo('ideas/edit', idea);
 
