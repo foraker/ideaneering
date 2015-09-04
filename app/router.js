@@ -12,7 +12,11 @@ Router.map(function() {
 
   this.resource('idea', { path: '/idea/:idea_id' }, function() {
     this.route('edit');
-  })
+
+    this.resource('comments', function() {
+      this.route('new');
+    });
+  });
 });
 
 export default Router;

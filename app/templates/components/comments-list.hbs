@@ -1,0 +1,10 @@
+<div>
+  {{comments.length}} comments
+  ({{#link-to 'comments.new' idea}}new{{/link-to}})
+</div>
+
+<ul>
+  {{#each comments as |comment|}}
+    <li>{{comment.body}} - {{comment.userName}}</li>
+  {{/each}}
+</ul>

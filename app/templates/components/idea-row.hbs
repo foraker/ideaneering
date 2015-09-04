@@ -7,7 +7,7 @@
   <h2>{{idea.title}}</h2>
   <p>{{idea.description}}</p>
 
-  {{idea.commentCount}} comments
+  {{comments-list comments=idea.comments idea=idea}}
 </div>
 
 <div class="author col-md-3">
