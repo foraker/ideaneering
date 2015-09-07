@@ -9,7 +9,8 @@
 
     <div class="form-group">
       <label for="description">Description</label>
-      {{textarea value=idea.description placeholder='Description' id='description' class='form-control'}}
+      {{easy-textarea value=idea.description modifiedSubmit='save'
+          placeholder='Description' id='description' class='form-control'}}
     </div>
 
     {{input type='submit' value='Save' class='btn btn-primary'}}
