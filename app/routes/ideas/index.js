@@ -20,21 +20,29 @@ export default Ember.Route.extend({
     removeVote: function(idea) {
       var user = this.get('session').get('currentUser');
 
-      idea.get('votes').filter(function(vote) {
-        return vote.get('user') === user;
-      })[0].destroyRecord();
+      user.get('votes').filter(function(vote) {
+        return vote.get('idea') === idea;
+      })[0].destroyRecord().then(function() {
+        user.save();
+        idea.save();
+      });
 
       return false;
     },
 
     deleteIdea: function(idea) {
-      idea.destroyRecord();
+      idea.destroyRecord().then(function() {
+        idea.get('comments').then(function(comments) {
+          comments.every(function(comment) {
+            comment.destroyRecord();
+          });
+        });
+      });
 
       return false;
     },
 
     deleteComment: function(comment) {
-      console.log("deleteComment: ", comment);
       comment.destroyRecord();
 
       return false;

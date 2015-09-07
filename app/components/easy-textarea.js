@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 // Ctrl or Cmd+enter to submit
 //
 // https://medium.com/the-ember-way/submit-an-ember-textarea-with-command-or-ctrl-enter-a933b4325b3b

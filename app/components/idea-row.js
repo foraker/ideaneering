@@ -26,8 +26,8 @@ export default Ember.Component.extend({
 
   hasVoted: function() {
     var _this = this;
-    return !!this.get('idea').get('votes').filter(function(vote) {
-      return vote.get('user') === _this.get('currentUser');
+    return !!_this.get('currentUser').get('votes').filter(function(vote) {
+      return vote.get('idea') === _this.get('idea');
     }).get('length');
   }.property('currentUser.votes.@each')
 });
