@@ -1,7 +1,8 @@
 <div class="panel-heading">
   <div class="panel-title clearfix">
     <span class="title">{{comments.length}} comments</span>
-    {{#link-to 'comments.new' idea class='new-button btn btn-primary clearfix pull-right'}}new{{/link-to}}
+    {{!-- {{#link-to 'comments.new' idea class='new-button btn btn-primary clearfix pull-right'}}new{{/link-to}} --}}
+    <a href="#" class='new-button btn btn-primary clearfix pull-right' {{action 'toggleCommenting'}}>new</a>
   </div>
 </div>
 
@@ -10,3 +11,7 @@
     {{comment-row comment=comment deleteComment='deleteComment'}}
   {{/each}}
 </ul>
+
+{{#if isCommenting}}
+  {{comment-form comment=newComment}}
+{{/if}}

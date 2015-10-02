@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['panel', 'panel-default', 'comments'],
+  isCommenting: false,
 
   actions: {
     toggleVote: function() {
@@ -13,6 +14,9 @@ export default Ember.Component.extend({
     },
     deleteComment: function(comment) {
       this.sendAction('deleteComment', comment);
+    },
+    toggleCommenting: function() {
+      this.set('isCommenting', !this.get('isCommenting'));
     }
   },
 });

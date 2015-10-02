@@ -21,7 +21,7 @@ export default Ember.Component.extend({
     },
     deleteComment: function(comment) {
       this.sendAction('deleteComment', comment);
-    },
+    }
   },
 
   hasVoted: function() {
@@ -29,5 +29,9 @@ export default Ember.Component.extend({
     return !!_this.get('currentUser').get('votes').filter(function(vote) {
       return vote.get('idea') === _this.get('idea');
     }).get('length');
-  }.property('currentUser.votes.@each')
+  }.property('currentUser.votes.@each'),
+
+  newComment: function() {
+    this.store.createRecord('comment');
+  }
 });
