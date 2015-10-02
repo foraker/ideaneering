@@ -10,13 +10,8 @@ export default Ember.Route.extend({
       model.set('user', user);
       model.set('idea', this.get('idea'));
 
-      // Have to save everything to deal with associations in Firebase
-      model.save().then(function() {
-        user.save().then(function() {
-          _this.get('idea').save().then(function() {
-            _this.transitionTo('ideas');
-          });
-        });
+      _this.get('idea').save().then(function() {
+        _this.transitionTo('ideas');
       });
 
       return false;

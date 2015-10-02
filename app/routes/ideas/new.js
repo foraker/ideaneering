@@ -9,9 +9,7 @@ export default Ember.Route.extend({
 
       model.set('user', user);
       model.save().then(function() {
-        user.save().then(function() {
-          _this.transitionTo('ideas');
-        });
+        _this.transitionTo('ideas');
       });
 
       return false;

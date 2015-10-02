@@ -4,8 +4,6 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ideaneering',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
-    firebase: 'https://ideaneering.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
     },

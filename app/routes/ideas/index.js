@@ -22,22 +22,13 @@ export default Ember.Route.extend({
 
       user.get('votes').filter(function(vote) {
         return vote.get('idea') === idea;
-      })[0].destroyRecord().then(function() {
-        user.save();
-        idea.save();
-      });
+      })[0].destroyRecord();
 
       return false;
     },
 
     deleteIdea: function(idea) {
-      idea.destroyRecord().then(function() {
-        idea.get('comments').then(function(comments) {
-          comments.every(function(comment) {
-            comment.destroyRecord();
-          });
-        });
-      });
+      idea.destroyRecord();
 
       return false;
     },
@@ -56,11 +47,6 @@ export default Ember.Route.extend({
   },
 
   model() {
-    return this.store.findAll('idea').then(function(ideas) {
-      return Ember.Object.extend({
-        sortedIdeas: Ember.computed.sort('model', 'props'),
-        props: ['score:desc', 'createdAt:desc']
-      }).create({ model: ideas });
-    });
+    return this.store.findAll('idea');
   }
 });
