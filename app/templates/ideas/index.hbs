@@ -6,7 +6,7 @@
       {{link-to 'new' 'ideas.new' class='btn btn-primary pull-right'}}
     </h1>
 
-    {{#each model.sortedIdeas as |idea|}}
+    {{#each model as |idea|}}
       {{idea-row idea=idea
           removeVote='removeVote'
           voteUp='voteUp'

@@ -4,8 +4,18 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ideaneering',
     environment: environment,
+    contentSecurityPolicy: {
+      'connect-src': "'self' http://localhost:3000 http://ideaneering-api.herokuapp.com"
+    },
     torii: {
-      sessionServiceName: 'session'
+      sessionServiceName: 'session',
+
+      providers: {
+        'google-oauth2': {
+          scope: 'email',
+          apiKey: process.env.GOOGLE_CLIENT_ID
+        }
+      }
     },
     baseURL: '/',
     locationType: 'hash',
@@ -28,6 +38,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.host = 'http://localhost:3000';
   }
 
   if (environment === 'test') {
@@ -43,8 +55,17 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.host = 'http://www.ideaneering-api.herokuapp.com';
   }
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer',
+    crossOriginWhitelist: [ENV.host]
+  };
+
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: ENV.host + '/api/v1/token'
+  };
 
   return ENV;
 };

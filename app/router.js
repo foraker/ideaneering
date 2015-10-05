@@ -21,6 +21,8 @@ Router.map(function() {
   this.resource('comment', { path: '/comment/:comment_id' }, function() {
     this.route('edit');
   });
+
+  this.route('authCallback', { path: '/auth/callback' });
 });
 
 export default Router;
