@@ -12,9 +12,15 @@ export default OAuth2.extend({
     return new Ember.RSVP.Promise(function(resolve, reject) {
       _this.makeRequest(_this.serverTokenEndpoint, oauthCredentials).then(function(response) {
         Ember.run(function() {
-          var expiresAt = _this.absolutizeExpirationTime(response.expires_in);
-          _this.scheduleAccessTokenRefresh(response.expires_in, expiresAt, response.refresh_token);
-          resolve(Ember.$.extend(response, { expires_at: expiresAt }));
+          var expiresAt = _this.absolutizeExpirationTime(response.data.attributes.expires_in);
+          // _this.scheduleAccessTokenRefresh(response.expires_in, expiresAt, response.refresh_token);
+
+          var sessionData = {
+            expires_at: expiresAt,
+            user_id:    response.data.relationships.user.data.id // JSON API is so nesty
+          };
+
+          resolve(sessionData);
         });
       }, function(xhr) {
         Ember.run(function() {

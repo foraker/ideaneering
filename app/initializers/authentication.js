@@ -8,7 +8,8 @@ export default {
   initialize: function(container) {
     Session.reopen({
       currentUser: function() {
-        var userId = this.get('user_id');
+        var userId = this.get('content').secure.user_id;
+
         if (!Ember.isEmpty(userId)) {
           return container.lookup('store:main').find('user', userId);
         }

@@ -64,8 +64,10 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: ENV.host + '/api/v1/token'
+    serverTokenEndpoint: ENV.host + '/tokens'
   };
+
+  ENV.torii.providers['google-oauth2']['redirectUri'] = 'http://localhost:4200'
 
   return ENV;
 };

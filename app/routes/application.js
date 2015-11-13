@@ -18,7 +18,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       );
     },
     signOut: function() {
-      this.get("session").close();
+      this.get("session").invalidate();
     }
   }
 });

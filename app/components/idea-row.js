@@ -26,6 +26,10 @@ export default Ember.Component.extend({
 
   hasVoted: function() {
     var _this = this;
+    if (!this.get('currentUser')) {
+      return false;
+    }
+
     return !!_this.get('currentUser').get('votes').filter(function(vote) {
       return vote.get('idea') === _this.get('idea');
     }).get('length');
